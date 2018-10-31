@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿	using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +16,7 @@ public class playerController : MonoBehaviour
 
         public GameObject bolt;
         public Transform shotSpawn;
+        AudioSource laser;
         //public float fireRate;
 
         //private float nextFire;
@@ -57,10 +58,11 @@ public class playerController : MonoBehaviour
             GameObject newBolt = Instantiate(bolt, shotSpawn.position, shotSpawn.rotation);
             Destroy( newBolt, 2.0f );
             nextShotTime = Time.time + fireRate ;
+            laser.Play ();
             Debug.Log("space pressed");
         }
-     }
 
+       
      // void OnCollisionEnter2D(Collision2D col)
      // {
 
@@ -73,7 +75,10 @@ public class playerController : MonoBehaviour
      //    }
 
      // }
+	}
+
 }
+
 
     // void OnTriggerExit(Collider other)
 
